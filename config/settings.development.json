@@ -1,7 +1,12 @@
 {
+  "monti": {
+    "appId": "qp2nCwttTBd8rtdDu",
+    "appSecret": "2ca40154-ba11-4f50-b435-1868499b0781"
+  },
+
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "password": "changeme", "hasPass": true, "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme", "hasPass": false }
   ],
 
   "defaultData": [
@@ -9,5 +14,10 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultStalls": [
+    { "stallId": 213, "owner": "john@foo.com", "side": "ewa", "level": 2 },
+    { "stallId": 521, "owner": "admin@foo.com", "side": "ewa", "level": 3 }
   ]
 }
