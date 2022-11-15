@@ -31,7 +31,7 @@ const Landing = () => (
           <Col className="text-center text-white">
             <h1>How to get a parking stall without an account</h1>
             <Container>Instructions</Container>
-            <a href="https://en.wikipedia.org/wiki/BTS">
+            <a href="https://en.wikipedia.org/wiki/BTS"> {/* change later */}
               <button type="button" className="btn btn-light rounded-pill">Look for a stall</button>
             </a>
           </Col>
