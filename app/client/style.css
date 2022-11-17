@@ -50,3 +50,18 @@ html,body
   background-size: cover;
   min-height:82.4vh;
 }
+
+.background-image3 {
+  background-image: url("https://www6.pbrc.hawaii.edu/logos/manoaseal_transparent.png");
+  background-size: cover;
+  min-height: 80vh;
+}
+.bg-green {
+  background-color: #004f2f;
+}
+.bg-light-green {
+  background-color: #327F60;
+}
+Alert {
+  background-color: #004f2f;
+}

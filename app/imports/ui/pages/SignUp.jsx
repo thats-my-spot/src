@@ -17,13 +17,14 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    hasPass: Boolean,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, hasPass } = doc;
+    Accounts.createUser({ email, username: email, password, hasPass }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -40,23 +41,25 @@ const SignUp = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="signup-page" className="py-3">
+    <Container fluid id="signup-page" className="py-3 background-image3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center">
-            <h2>Register your account</h2>
+          <Col className="text-center text-white">
+            <h2 className="bg-light-green p-0 m-0">Register your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
-              <Card.Body>
+              <Card.Body className="bg-light-green text-white">
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
+                <span className="me-3">Have a parking pass</span>
+                <input name="hasPass" type="checkbox" className="ps-5" />
                 <ErrorsField />
                 <SubmitField />
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="light">
+          <Alert variant="success">
             Already have an account? Login
             {' '}
             <Link to="/signin">here</Link>
