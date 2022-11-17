@@ -17,14 +17,14 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
-    parkingPass: Boolean,
+    hasPass: Boolean,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password, parkingPass } = doc;
-    Accounts.createUser({ email, username: email, password, parkingPass }, (err) => {
+    const { email, password, hasPass } = doc;
+    Accounts.createUser({ email, username: email, password, hasPass }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -53,7 +53,7 @@ const SignUp = ({ location }) => {
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <span className="me-3">Have a parking pass</span>
-                <input name="parkingPass" type="checkbox" className="ps-5" />
+                <input name="hasPass" type="checkbox" className="ps-5" />
                 <ErrorsField />
                 <SubmitField />
               </Card.Body>
