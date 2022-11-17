@@ -13,11 +13,13 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light-green" expand="lg" className="sticky-top">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           <h2>That&apos;s My Spot!</h2>
         </Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/">Home</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/">Availability</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
