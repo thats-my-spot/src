@@ -36,6 +36,7 @@ jobs:
       - name: Run Meteor commands
         shell: bash -l {0}
         run: |
+          meteor reset
           meteor npm install
           meteor npm run lint
 #          meteor npm run testcafe-ci
