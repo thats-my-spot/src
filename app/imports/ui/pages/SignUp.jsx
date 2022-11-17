@@ -17,13 +17,14 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    parkingPass: Boolean,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, parkingPass } = doc;
+    Accounts.createUser({ email, username: email, password, parkingPass }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -40,10 +41,10 @@ const SignUp = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="signup-page" className="py-3">
+    <Container fluid id="signup-page" className="py-3 background-image2">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center">
+          <Col className="text-center text-white">
             <h2>Register your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
@@ -51,6 +52,8 @@ const SignUp = ({ location }) => {
               <Card.Body>
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
+                <span className="me-3">Have a parking pass</span>
+                <input name="parkingPass" type="checkbox" className="ps-5" />
                 <ErrorsField />
                 <SubmitField />
               </Card.Body>
