@@ -7,7 +7,7 @@ const Landing = () => (
     <div className="background-image py-3 w-100 p-0 m-0 text-center align-text-bottom">
       <a href="#instruction" className="h1"><button type="button" className="btn btn-light rounded-pill">Instructions</button></a>
     </div>
-    <div id="instruction" className="background-image2">
+    <div id="instruction" className="background-image2 pt-4">
       <Row>
         <Col className="d-flex flex-column justify-content-center text-center text-white h1">
           HOW TO PARK
