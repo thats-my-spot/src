@@ -41,15 +41,15 @@ const SignUp = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container fluid id="signup-page" className="py-3 background-image2">
+    <Container fluid id="signup-page" className="py-3 background-image3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center text-white">
-            <h2>Register your account</h2>
+            <h2 className="bg-light-green p-0 m-0">Register your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
-              <Card.Body>
+              <Card.Body className="bg-light-green text-white">
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <span className="me-3">Have a parking pass</span>
@@ -59,7 +59,7 @@ const SignUp = ({ location }) => {
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="light">
+          <Alert variant="success">
             Already have an account? Login
             {' '}
             <Link to="/signin">here</Link>
