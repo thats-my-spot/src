@@ -25,6 +25,11 @@ html,body
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  /*background: transparent;  !* Optional: just make scrollbar invisible *!*/
+}
+
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {
   --bs-alert-bg: var(--matr-navbar-bg);
@@ -42,13 +47,13 @@ html,body
   background-image: url("https://media1.giphy.com/media/EFGDfCzS5YA48/giphy.gif");
   background-position: center;
   background-size: cover;
-  min-height: 90vh;
+  min-height: calc(100vh - 73px);
 }
 
 .background-image2 {
   background-color: #004f2f;
   background-size: cover;
-  min-height:82.4vh;
+  min-height: calc(100vh - 128px);
 }
 
 .background-image3 {
