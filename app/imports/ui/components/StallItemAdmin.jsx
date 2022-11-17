@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 const StallItemAdmin = ({ stall }) => (
   <tr>
     <td>{stall.stallId}</td>
-    <td>{stall.side}</td>
     <td>{stall.level}</td>
     <td>{stall.owner}</td>
+    <td>{stall.licensePlate}</td>
   </tr>
 );
 
@@ -16,8 +16,8 @@ StallItemAdmin.propTypes = {
   stall: PropTypes.shape({
     stallId: PropTypes.number,
     owner: PropTypes.string,
-    side: PropTypes.string,
     level: PropTypes.number,
+    licensePlate: PropTypes.string,
   }).isRequired,
 };
 

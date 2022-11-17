@@ -15,8 +15,8 @@ class StallsCollection {
     this.schema = new SimpleSchema({
       stallId: Number,
       owner: String,
-      side: String,
       level: Number,
+      licensePlate: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

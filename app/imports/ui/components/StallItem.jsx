@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 const StallItem = ({ stall }) => (
   <tr>
     <td>{stall.stallId}</td>
-    <td>{stall.side}</td>
     <td>{stall.level}</td>
   </tr>
 );
@@ -15,7 +14,6 @@ StallItem.propTypes = {
   stall: PropTypes.shape({
     stallId: PropTypes.number,
     owner: PropTypes.string,
-    side: PropTypes.string,
     level: PropTypes.number,
   }).isRequired,
 };

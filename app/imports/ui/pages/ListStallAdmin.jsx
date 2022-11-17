@@ -30,9 +30,9 @@ const ListStallAdmin = () => {
             <thead>
               <tr>
                 <th>Stall ID</th>
-                <th>Side</th>
                 <th>Level</th>
                 <th>Owner</th>
+                <th>License Plate</th>
               </tr>
             </thead>
             <tbody>

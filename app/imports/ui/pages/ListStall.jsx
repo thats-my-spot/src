@@ -34,7 +34,6 @@ const ListStall = () => {
             <thead>
               <tr>
                 <th>Stall ID</th>
-                <th>Side</th>
                 <th>Level</th>
               </tr>
             </thead>
