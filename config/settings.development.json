@@ -17,7 +17,20 @@
   ],
 
   "defaultStalls": [
-    { "stallId": 213, "owner": "john@foo.com", "side": "ewa", "level": 2 },
-    { "stallId": 521, "owner": "admin@foo.com", "side": "ewa", "level": 3 }
+    { "stallId": 1, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 2, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 3, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 4, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 5, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 6, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 7, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 8, "owner": "john@foo.com", "level": 2, "licensePlate": "WDZ449" },
+    { "stallId": 9, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 10, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 11, "owner": "empty", "level": 3, "licensePlate": "empty" },
+    { "stallId": 12, "owner": "admin@foo.com", "level": 3, "licensePlate": "STR342" },
+    { "stallId": 13, "owner": "empty", "level": 3, "licensePlate": "empty" },
+    { "stallId": 14, "owner": "empty", "level": 3, "licensePlate": "empty" },
+    { "stallId": 15, "owner": "empty", "level": 3, "licensePlate": "empty" }
   ]
 }
