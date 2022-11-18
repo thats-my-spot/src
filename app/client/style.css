@@ -5,6 +5,8 @@
 :root {
   --matr-navbar-bg: #ECECEC;
   --matr-navbar-bg-rgb: 236, 236, 236;
+  --matr-navbar-text-color: white;
+  --matr-navbar-highlight-text: pink;
 }
 
 
@@ -25,6 +27,11 @@ html,body
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  /*background: transparent;  !* Optional: just make scrollbar invisible *!*/
+}
+
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {
   --bs-alert-bg: var(--matr-navbar-bg);
@@ -42,13 +49,13 @@ html,body
   background-image: url("https://media1.giphy.com/media/EFGDfCzS5YA48/giphy.gif");
   background-position: center;
   background-size: cover;
-  min-height: 90vh;
+  min-height: calc(100vh - 73px);
 }
 
 .background-image2 {
   background-color: #004f2f;
   background-size: cover;
-  min-height:82.4vh;
+  min-height: calc(100vh - 128px);
 }
 
 .background-image3 {
@@ -56,12 +63,27 @@ html,body
   background-size: cover;
   min-height: 80vh;
 }
+
 .bg-green {
   background-color: #004f2f;
 }
+
 .bg-light-green {
   background-color: #327F60;
 }
+
 Alert {
   background-color: #004f2f;
+}
+
+body .navbar {
+  /*--bs-navbar-active-color: var(--matr-navbar-highlight-text);*/
+  --bs-navbar-brand-color: var(--matr-navbar-text-color);
+  /*--bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);*/
+  --bs-navbar-color: var(--matr-navbar-text-color);
+  /*--bs-navbar-hover-color: var(--matr-navbar-highlight-text);*/
+}
+
+footer {
+  color: var(--matr-navbar-text-color);
 }
