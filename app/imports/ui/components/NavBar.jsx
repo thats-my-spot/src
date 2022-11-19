@@ -15,6 +15,7 @@ const NavBar = () => {
   return (
     <Navbar bg="light-green" expand="lg" className="sticky-top">
       <Container>
+        <img id="small-image" src="https://raw.githubusercontent.com/thats-my-spot/src/42d0304f6589b1f21fe43c38a07f4867ea497ec6/app/public/images/manoa-seal.png?token=GHSAT0AAAAAABYV62UFPYAVNYWCK6UZFQKYY3YL6ZA" alt="nothing "/>
         <Navbar.Brand as={NavLink} to="/">
           <h2>That&apos;s My Spot!</h2>
         </Navbar.Brand>
