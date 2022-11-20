@@ -1,0 +1,36 @@
+{
+  "monti": {
+    "appId": "qp2nCwttTBd8rtdDu",
+    "appSecret": "2ca40154-ba11-4f50-b435-1868499b0781"
+  },
+
+  "defaultAccounts": [
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme" }
+  ],
+
+  "defaultData": [
+    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
+    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
+    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
+    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultStalls": [
+    { "stallId": 1, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 2, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 3, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 4, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 5, "owner": "empty", "level": 1, "licensePlate": "empty" },
+    { "stallId": 6, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 7, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 8, "owner": "john@foo.com", "level": 2, "licensePlate": "WDZ449" },
+    { "stallId": 9, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 10, "owner": "empty", "level": 2, "licensePlate": "empty" },
+    { "stallId": 11, "owner": "empty", "level": 3, "licensePlate": "empty" },
+    { "stallId": 12, "owner": "admin@foo.com", "level": 3, "licensePlate": "STR342" },
+    { "stallId": 13, "owner": "empty", "level": 3, "licensePlate": "empty" },
+    { "stallId": 14, "owner": "empty", "level": 3, "licensePlate": "empty" },
+    { "stallId": 15, "owner": "empty", "level": 3, "licensePlate": "empty" }
+  ]
+}
