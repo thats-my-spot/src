@@ -98,3 +98,8 @@ footer {
   line-height: 200px;
 }
 
+#small-image {
+  width: 120px;
+  padding: 10px;
+}
+
