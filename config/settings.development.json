@@ -5,8 +5,8 @@
   },
 
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "hasPass": true, "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme", "hasPass": false }
+    { "email": "admin@foo.com", "password": "changeme", "hasPass": true, "role": "admin", "licensePlate": "STR342" },
+    { "email": "john@foo.com", "password": "changeme", "hasPass": false, "licensePlate": "WDZ449" }
   ],
 
   "defaultData": [
@@ -24,11 +24,11 @@
     { "stallId": 5, "owner": "empty", "level": 1, "licensePlate": "empty" },
     { "stallId": 6, "owner": "empty", "level": 2, "licensePlate": "empty" },
     { "stallId": 7, "owner": "empty", "level": 2, "licensePlate": "empty" },
-    { "stallId": 8, "owner": "john@foo.com", "level": 2, "licensePlate": "WDZ449" },
+    { "stallId": 8, "owner": "empty", "level": 2, "licensePlate": "empty" },
     { "stallId": 9, "owner": "empty", "level": 2, "licensePlate": "empty" },
     { "stallId": 10, "owner": "empty", "level": 2, "licensePlate": "empty" },
     { "stallId": 11, "owner": "empty", "level": 3, "licensePlate": "empty" },
-    { "stallId": 12, "owner": "admin@foo.com", "level": 3, "licensePlate": "STR342" },
+    { "stallId": 12, "owner": "empty", "level": 3, "licensePlate": "empty" },
     { "stallId": 13, "owner": "empty", "level": 3, "licensePlate": "empty" },
     { "stallId": 14, "owner": "empty", "level": 3, "licensePlate": "empty" },
     { "stallId": 15, "owner": "empty", "level": 3, "licensePlate": "empty" }
