@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <Navbar bg="light-green" expand="lg" className="sticky-top">
       <Container>
-        <img id="small-image" src="https://raw.githubusercontent.com/thats-my-spot/src/42d0304f6589b1f21fe43c38a07f4867ea497ec6/app/public/images/manoa-seal.png?token=GHSAT0AAAAAABYV62UFPYAVNYWCK6UZFQKYY3YL6ZA" alt="nothing "/>
+        <img id="small-image" src="https://raw.githubusercontent.com/thats-my-spot/src/42d0304f6589b1f21fe43c38a07f4867ea497ec6/app/public/images/manoa-seal.png?token=GHSAT0AAAAAABYV62UFPYAVNYWCK6UZFQKYY3YL6ZA" alt="nothing " />
         <Navbar.Brand as={NavLink} to="/">
           <h2>That&apos;s My Spot!</h2>
         </Navbar.Brand>
@@ -26,7 +26,7 @@ const NavBar = () => {
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
               <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Stuff</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Stuff</Nav.Link>,
+              <Nav.Link id="list-stall-nav" as={NavLink} to="/stall" key="list">Your Stall</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
