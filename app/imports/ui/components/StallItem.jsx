@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/** Renders a single row in the List Stall table. See pages/ListStall.jsx. */
+/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const StallItem = ({ stall }) => (
   <tr>
     <td>{stall.stallId}</td>
