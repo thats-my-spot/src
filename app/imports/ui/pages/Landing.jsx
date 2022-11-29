@@ -1,5 +1,5 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Container, Row, Button, Modal } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
@@ -14,26 +14,19 @@ const Landing = () => (
         </Col>
         <Row className="d-flex justify-content-center">
           <Col className="text-center text-white">
-            <h1>How to get a parking stall with an account</h1>
-            <Container>Instructions</Container>
-
-            <Container>Already have an account? Sign in below</Container>
-            <a href="/signin">
-              <button type="button" className="btn btn-light rounded-pill">Sign in</button>
-            </a>
-            <Container>
-              Don&#39;t have an account? Sign up below
-            </Container>
-            <a href="/signup">
-              <button type="button" className="btn btn-light rounded-pill">Sign up</button>
-            </a>
+            <div id="text-bg"><h1>Have a UH account?</h1>
+              <AccInstr />
+            </div>
           </Col>
           <Col className="text-center text-white">
-            <h1>How to get a parking stall without an account</h1>
-            <Container>Instructions</Container>
-            <a href="/availability"> {/* change later */}
-              <button type="button" className="btn btn-light rounded-pill">Look for a stall</button>
-            </a>
+            <div id="text-bg"><h1>Guest?</h1>
+              <div>
+                <img id="medium-image" src="https://manoa.hawaii.edu/commuter/wp-content/uploads/sites/6/2022/11/students.jpg" alt="nothing" />
+              </div>
+              <div id="small-padd">
+                <NoAccInstr />
+              </div>
+            </div>
           </Col>
         </Row>
       </Row>
@@ -46,5 +39,59 @@ const Landing = () => (
   </Container>
 
 );
+
+const AccInstr = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        Instructions
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Instructions</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ol>1.</ol>
+          <ol>2.</ol>
+          <ol>3.</ol>
+        </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+};
+
+const NoAccInstr = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        Instructions
+      </Button>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Instructions</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>Already have an account? Sign in below</div>
+          <a href="/reserve">
+            <button type="button" className="btn btn-light rounded-pill">Sign in</button>
+          </a>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+};
 
 export default Landing;

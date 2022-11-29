@@ -49,7 +49,7 @@ html,body
   background-image: url("https://media.discordapp.net/attachments/1039313935775576164/1047037525761474570/zone20.jpg?width=1873&height=843");
   background-position: center;
   background-size: cover;
-  height: 700px;
+  height: 500px;
 }
 
 .background-image2 {
@@ -101,4 +101,18 @@ footer {
 #small-image {
   width: 120px;
   padding: 10px;
+}
+
+#small-padd {
+  padding: 20px;
+}
+
+#medium-image {
+  width: 620px;
+}
+
+#text-bg {
+  padding: 10px;
+  margin-right: -10px;
+  background: #327F60;
 }
