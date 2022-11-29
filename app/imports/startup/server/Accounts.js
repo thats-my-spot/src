@@ -13,7 +13,7 @@ const createUser = (email, password, hasPass, licensePlate, role) => {
     profile: {
       hasPass: hasPass,
       licensePlate: licensePlate,
-    }
+    },
   });
   if (role === 'admin') {
     Roles.createRole(role, { unlessExists: true });
