@@ -5,8 +5,8 @@
   },
 
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "hasPass": true, "licensePlate": "abc 123", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme", "hasPass": false, "licensePlate": "abc 123" }
+    { "email": "admin@foo.com", "password": "changeme", "hasPass": true, "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme", "hasPass": false }
   ],
 
   "defaultData": [
