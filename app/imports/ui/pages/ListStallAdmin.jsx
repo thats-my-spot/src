@@ -38,7 +38,7 @@ const ListStallAdmin = () => {
             </thead>
             <tbody>
               {stalls.map(function (stall) {
-                return (stall.owner === 'empty') ? '' : <StallItemAdmin key={stall.stallId} stall={stall} />;
+                return (stall.owner === 'empty') ? '' : <StallItemAdmin key={stall.stallId} stall={stall} collection={Stalls.collection} />;
               })}
             </tbody>
           </Table>
