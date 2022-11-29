@@ -29,8 +29,9 @@ const SignUp = ({ location }) => {
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
     const { email, password, hasPass } = doc;
-    Accounts.createUser({ email, username: email, password, hasPass }, (err) => {
+    Accounts.createUser({ email: email, username: email, password, profile: { hasPass: hasPass} }, (err) => {
       if (err) {
+        console.log(err);
         setError(err.reason);
       } else {
         setError('');
@@ -55,7 +56,7 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body className="bg-light-green text-white">
-                <TextField name="email" placeholder="E-mail address" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" />
+                <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <span className="me-3">Have a parking pass?</span>
                 <BoolField name="hasPass" className="ps-5" />
