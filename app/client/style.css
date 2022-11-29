@@ -46,10 +46,10 @@ html,body
 }
 
 .background-image {
-  background-image: url("https://media1.giphy.com/media/EFGDfCzS5YA48/giphy.gif");
+  background-image: url("https://media.discordapp.net/attachments/1039313935775576164/1047037525761474570/zone20.jpg?width=1873&height=843");
   background-position: center;
   background-size: cover;
-  min-height: calc(100vh - 73px);
+  height: 700px;
 }
 
 .background-image2 {
