@@ -5,7 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, BoolField, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -13,11 +13,16 @@ import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstra
 const SignUp = ({ location }) => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
-
   const schema = new SimpleSchema({
-    email: String,
+    email: {
+      type: String,
+      regEx: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, //eslint-disable-line
+    },
     password: String,
-    hasPass: Boolean,
+    hasPass: {
+      type: Boolean,
+      required: false,
+    },
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -50,10 +55,10 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body className="bg-light-green text-white">
-                <TextField name="email" placeholder="E-mail address" />
+                <TextField name="email" placeholder="E-mail address" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" />
                 <TextField name="password" placeholder="Password" type="password" />
-                <span className="me-3">Have a parking pass</span>
-                <input name="hasPass" type="checkbox" className="ps-5" />
+                <span className="me-3">Have a parking pass?</span>
+                <BoolField name="hasPass" className="ps-5" />
                 <ErrorsField />
                 <SubmitField />
               </Card.Body>

@@ -28,7 +28,7 @@ const ListStall = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List Stall</h2>
+            <h2>Your Stall</h2>
           </Col>
           <Table striped bordered hover>
             <thead>

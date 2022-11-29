@@ -32,7 +32,7 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
 
 Meteor.publish(Stalls.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stalls.collection.find({ owner: { $ne: 'empty' } });
+    return Stalls.collection.find();
   }
   return this.ready();
 });
