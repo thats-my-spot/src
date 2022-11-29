@@ -1,9 +1,20 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import Pagination from 'react-bootstrap/Pagination';
 import { Stalls } from '../../api/stalls/Stalls';
 import LoadingSpinner from '../components/LoadingSpinner';
+
+const active = 1;
+const items = [];
+for (let i = 1; i <= 3; i++) {
+  items.push(
+    <Pagination.Item key={i} active={i === active}>
+      {i}
+    </Pagination.Item>,
+  );
+}
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const Availability = () => {
@@ -12,7 +23,7 @@ const Availability = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stalls.adminPublicationName);
+    const subscription = Meteor.subscribe(Stalls.availablePublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
@@ -37,16 +48,6 @@ const Availability = () => {
                 <th> 3</th>
                 <th> 4</th>
                 <th> 5</th>
-                <th> 6</th>
-                <th> 7</th>
-                <th> 8</th>
-                <th> 9</th>
-                <th> 10</th>
-                <th> 11</th>
-                <th> 12</th>
-                <th> 13</th>
-                <th> 14</th>
-                <th> 15</th>
               </tr>
             </thead>
             <tbody>
@@ -55,14 +56,9 @@ const Availability = () => {
               </tr>
             </tbody>
           </Table>
-          <Row className="justify-content-center">
-            <Col className="col-4">
-              <Button>Previous level</Button>
-            </Col>
-            <Col className="col-4">
-              <Button>Next level</Button>
-            </Col>
-          </Row>
+          <div>
+            <Pagination>{items}</Pagination>
+          </div>
         </Col>
       </Row>
     </Container>
