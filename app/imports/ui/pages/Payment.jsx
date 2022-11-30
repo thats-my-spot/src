@@ -1,26 +1,20 @@
 import React from 'react';
-import { Card, Col, Container, Row, Alert } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import {
   AutoForm,
   ErrorsField,
   NumField,
-  SelectField,
   SubmitField,
   TextField,
-  AutoField,
   HiddenField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { useTracker } from 'meteor/react-meteor-data';
-import Landing from './Landing';
-import NotFound from './NotFound';
+// import { useTracker } from 'meteor/react-meteor-data';
+// import { useParams } from 'react-router';
 import { Stalls } from '../../api/stalls/Stalls';
-import LoadingSpinner from '../components/LoadingSpinner';
-import { Stuffs } from '../../api/stuff/Stuff';
-import {useParams} from "react-router";
 
 const formSchema = new SimpleSchema({
   owner: String,
@@ -33,23 +27,14 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 const randomId = () => {
 
-  const { _id } = useParams();
+  // Get access to Stuff documents.
+  Meteor.subscribe(Stalls.adminPublicationName);
+  // Determine if the subscription is ready
+  // const rdy = subscription.ready();
+  // Get the Stuff documents
 
-  const { ready, stalls } = useTracker(() => {
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stalls.adminPublicationName);
-    // Determine if the subscription is ready
-    const rdy = subscription.ready();
-    // Get the Stuff documents
-    const stallItems = Stalls.collection.find({}).fetch();
-    return {
-      stalls: stallItems,
-      ready: rdy,
-    };
-  }, []);
+  // eslint-disable-next-line no-undef
   const idNum = _.random(1, 15);
-  console.log(Stalls.collection.find({}).fetch());
-
   return idNum;
 };
 
@@ -57,11 +42,11 @@ const Payment = () => {
   // On submit, insert the data.
   const submit = (data) => {
     const { owner, level, stallId, licensePlate } = data;
-    console.log(randomId());
-    Stalls.collection.update({Stalls }, { $set: { owner, level, stallId, licensePlate } }, (error) => (error ?
-        swal('Error', error.message, 'error') :
-        swal('Success', 'Item updated successfully', 'success')));
-    //formRef.reset();
+    // console.log(randomId());
+    Stalls.collection.update({ Stalls }, { $set: { owner, level, stallId, licensePlate } }, (error) => (error ?
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')));
+
   };
 
   // const submit = (data, formRef) => {
