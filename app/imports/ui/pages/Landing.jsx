@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
-  <Container fluid className=" p-0 m-0 w-100">
+  <Container id="landing-page" fluid className=" p-0 m-0 w-100">
     <div className="background-image py-3 w-100 p-0 m-0 text-center align-text-bottom">
       <a href="#instruction" className="h1"><button type="button" className="btn btn-light rounded-pill">Instructions</button></a>
     </div>
