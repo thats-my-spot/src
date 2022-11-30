@@ -30,7 +30,7 @@ test('Test that landing page shows up and all pages work', async (testController
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
   await navBar.gotoSignUpPage(testController);
-  await signupPage.signupUser(testController, newCreds.username, newCreds.licensePlate, newCreds.password, newCreds.hasPass);
+  await signupPage.signupUser(testController, 'abc@foo.com', newCreds.licensePlate, newCreds.password);
 });
 
 /* test('Test that admin signin works', async (testController) => {
