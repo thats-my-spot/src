@@ -103,6 +103,7 @@ footer {
   padding: 10px;
 }
 
+/*<<<<<<< HEAD*/
 #small-padd {
   padding: 20px;
 }
@@ -118,3 +119,14 @@ footer {
 }
 
 
+/*=======*/
+td a {
+  display: block;
+  position: relative;
+}
+
+td a:hover {
+  background: green;
+  color:#ffffff
+}
+/*>>>>>>> main*/
