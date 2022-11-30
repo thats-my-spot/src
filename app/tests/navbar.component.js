@@ -64,6 +64,7 @@ class NavBar {
 
     await testController.expect('abc@foo.com').eql(username);
   }
+
   /** Check that someone is logged in, then click items to logout. */
   async logout(testController) {
     const visible = await Selector('#basic-navbar-nav').visible;
