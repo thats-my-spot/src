@@ -52,7 +52,11 @@ const Availability = () => {
             </thead>
             <tbody>
               <tr>
-                {stalls.map((stall) => <td height={200} style={{ backgroundColor: (stall.owner === 'empty' ? 'lightgreen' : 'red') }}> </td>)}
+                {stalls.map(function (stall) {
+                  return (stall.owner === 'empty') ?
+                    <td height={200} style={{ backgroundColor: 'lightgreen' }}><a href="https://en.wikipedia.org/wiki/Human_rights_violations_by_the_CIA" style={{ display: 'block', position: 'relative' }}>‎</a></td>
+                    : <td height={200} style={{ backgroundColor: 'red' }}> </td>;
+                })}
               </tr>
             </tbody>
           </Table>
