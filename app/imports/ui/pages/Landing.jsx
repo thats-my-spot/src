@@ -70,7 +70,7 @@ const AccInstr = () => {
           <Modal.Title>Instructions</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div>1. Sign up for a <i>That's My Spot Account</i> with your UH Manoa account <a href="/signup">here.</a></div>
+          <div>1. Sign up for a <i>That&apos;s My Spot Account</i> with your UH Manoa account <a href="/signup">here.</a></div>
           <div>2. Visit the <a href="/availability">availability</a> page to see open stalls.</div>
           <div>3. <a href="/reserve">Reserve</a> and park!</div>
           <div id="small-padd">
