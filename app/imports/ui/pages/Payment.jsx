@@ -4,7 +4,6 @@ import SimpleSchema from 'simpl-schema';
 import {
   AutoForm,
   ErrorsField,
-  NumField,
   SubmitField,
   TextField,
   HiddenField,
@@ -18,7 +17,6 @@ import { Stalls } from '../../api/stalls/Stalls';
 
 const formSchema = new SimpleSchema({
   owner: String,
-  level: Number,
   stallId: Number,
   licensePlate: String,
 });
@@ -27,23 +25,26 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 const randomId = () => {
 
-  // Get access to Stuff documents.
+  // Get access to Stall documents.
   Meteor.subscribe(Stalls.adminPublicationName);
   // Determine if the subscription is ready
   // const rdy = subscription.ready();
   // Get the Stuff documents
 
-  // eslint-disable-next-line no-undef
-  const idNum = _.random(1, 15);
-  return idNum;
+  const stall = Stalls.collection.findOne({ owner: { $eq: 'empty' } });
+  console.log(stall);
+  if (stall === undefined) {
+    return -1;
+  }
+  return stall.fetch().stallId;
 };
 
 const Payment = () => {
   // On submit, insert the data.
   const submit = (data) => {
     const { owner, level, stallId, licensePlate } = data;
-    // console.log(randomId());
-    Stalls.collection.update({ Stalls }, { $set: { owner, level, stallId, licensePlate } }, (error) => (error ?
+    console.log(randomId());
+    Stalls.collection.update({ stallId: { $eq: stallId } }, { $set: { owner, level, stallId, licensePlate } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
 
@@ -77,7 +78,6 @@ const Payment = () => {
               <Card.Body>
                 <TextField name="owner" />
                 <HiddenField name="stallId" value={randomId()} />
-                <NumField name="level" decimal={null} />
                 <TextField name="licensePlate" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
