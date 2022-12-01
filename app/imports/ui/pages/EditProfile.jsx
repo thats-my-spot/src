@@ -1,26 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, BoolField, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import SimpleSchema from 'simpl-schema';
-//import { Stuffs } from '../../api/stuff/Stuff';
+import { Stuffs } from '../../api/stuff/Stuff';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const schema = new SimpleSchema({
-  email: {
-    type: String,
-    regEx: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, //eslint-disable-line
-  },
-  password: String,
   hasPass: {
     type: Boolean,
     required: false,
   },
-  licensePlate: String,
+  licensePlate: {
+    type: String,
+    max: 7,
+    regEx: /[A-Z]{3} [0-9]{3}/,
+  },
 });
 
 const bridge = new SimpleSchema2Bridge(schema);
@@ -29,6 +28,7 @@ const bridge = new SimpleSchema2Bridge(schema);
 const EditStuff = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
+  const [redirectToReferer, setRedirectToRef] = useState(false);
   // console.log('EditStuff', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
@@ -40,16 +40,19 @@ const EditStuff = () => {
     const document = Meteor.users.findOne(Meteor.userId());
     return {
       doc: document,
-      ready: rdy,
+      ready: true,
     };
   }, [_id]);
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
     const { licensePlate, hasPass } = data;
-    Stuffs.collection.update(_id, { $set: { 'profile.licensePlate': licensePlate, 'profile.hasPass': hasPass } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    Meteor.users.update(Meteor.userId(), { $set: { 'profile.licensePlate': licensePlate, 'profile.hasPass': hasPass } }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error')
+      } else { swal('Success', 'Item updated successfully', 'success')
+      }
+    )};
   };
 
   return ready ? (
@@ -61,11 +64,9 @@ const EditStuff = () => {
             <Card>
               <Card.Body>
                 <TextField name="licensePlate" />
-                <TextField name="licensePlate" />
-                <SelectField name="condition" />
+                <BoolField name="hasPass" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
-                <HiddenField name="owner" />
               </Card.Body>
             </Card>
           </AutoForm>
