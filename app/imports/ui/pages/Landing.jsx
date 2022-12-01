@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Container, Row, Button, Modal } from 'react-bootstrap';
+import { Col, Container, Row, Button, Modal, Accordion } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
@@ -38,10 +38,15 @@ const Landing = () => (
         </Row>
       </Row>
       <Row id="small-padd">
-        <Col className="text-white h1" md={{ span: 4, offset: 1 }}>
+        <Col className="text-white h1" md={{ span: 5, offset: 1 }}>
           Frequently Asked Questions
         </Col>
         <hr />
+      </Row>
+      <Row>
+        <div id="short">
+          <Questions />
+        </div>
       </Row>
       <Row>
         <Container className="text-white d-flex justify-content-center">
@@ -108,5 +113,33 @@ const NoAccInstr = () => {
     </>
   );
 };
+
+const Questions = () => (
+  <Accordion defaultActiveKey="0">
+    <Accordion.Item eventKey="0">
+      <Accordion.Header>How do I obtain a parking pass?</Accordion.Header>
+      <Accordion.Body>
+        Parking passes may be obtained via the UH Manoa Commuter Services website. (Note that passes may be unavailable which means guest reservation is required.)
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="1">
+      <Accordion.Header>How many stalls are available?</Accordion.Header>
+      <Accordion.Body>
+        Unfortunately, at this time, only 15 stalls are available.
+      </Accordion.Body>
+    </Accordion.Item>
+    <Accordion.Item eventKey="2">
+      <Accordion.Header>How do I obtain a parking pass?</Accordion.Header>
+      <Accordion.Body>
+        Vehicles may be subject to tow for a variety of parking policy infractions.
+        <li>
+          Stall is not reserved for the current vehicle
+          Vehicle did not pay for their current stall.
+          Vehicle is currently banned from parking at UH Manoa Zone 20 parking structure.
+        </li>
+      </Accordion.Body>
+    </Accordion.Item>
+  </Accordion>
+);
 
 export default Landing;
