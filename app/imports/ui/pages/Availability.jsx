@@ -34,7 +34,7 @@ const Availability = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container id="avail-page" className="py-3">
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
@@ -52,7 +52,11 @@ const Availability = () => {
             </thead>
             <tbody>
               <tr>
-                {stalls.map((stall) => <td height={200} style={{ backgroundColor: (stall.owner === 'empty' ? 'lightgreen' : 'red') }}> </td>)}
+                {stalls.map(function (stall) {
+                  return (stall.owner === 'empty') ?
+                    <td height={200} style={{ backgroundColor: 'lightgreen' }}><a href="https://en.wikipedia.org/wiki/Human_rights_violations_by_the_CIA" style={{ display: 'block', position: 'relative' }}>‎</a></td>
+                    : <td height={200} style={{ backgroundColor: 'red' }}> </td>;
+                })}
               </tr>
             </tbody>
           </Table>
