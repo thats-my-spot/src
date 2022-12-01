@@ -23,8 +23,13 @@ const SignUp = ({ location }) => {
       type: Boolean,
       required: false,
     },
-    licensePlate: String,
+    licensePlate: {
+      type: String,
+      max: 7,
+      regEx: /[A-Z]{3} [0-9]{3}/,
+    },
   });
+
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
