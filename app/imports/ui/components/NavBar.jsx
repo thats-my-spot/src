@@ -21,10 +21,12 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Brand as={NavLink} to="/">Home</Navbar.Brand>
         <Navbar.Brand as={NavLink} to="/payment">Reserve</Navbar.Brand>
-        <Navbar.Brand id="avail-page" as={NavLink} to="/availability">Availability</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
+            {currentUser ? ([
+              <Nav.Link id="avail-page" as={NavLink} to="/availability">Availability</Nav.Link>,
+            ]) : ''}
             {currentUser ? ([
               <Nav.Link id="list-stall-nav" as={NavLink} to="/stall" key="list">Your Stall</Nav.Link>,
             ]) : ''}
