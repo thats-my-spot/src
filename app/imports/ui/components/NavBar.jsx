@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import { BoxArrowRight, Pencil, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 
 const NavBar = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -21,10 +21,12 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Brand as={NavLink} to="/">Home</Navbar.Brand>
         <Navbar.Brand as={NavLink} to="/payment">Reserve</Navbar.Brand>
-        <Navbar.Brand id="avail-page" as={NavLink} to="/availability">Availability</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
+            {currentUser ? ([
+              <Nav.Link id="avail-page" as={NavLink} to="/availability">Availability</Nav.Link>,
+            ]) : ''}
             {currentUser ? ([
               <Nav.Link id="list-stall-nav" as={NavLink} to="/stall" key="list">Your Stall</Nav.Link>,
             ]) : ''}
@@ -53,6 +55,12 @@ const NavBar = () => {
                   {' '}
                   Sign
                   out
+                </NavDropdown.Item>
+                <NavDropdown.Item id="navbar-edit-profile" as={NavLink} to="/editinfo">
+                  <Pencil />
+                  {' '}
+                  Edit
+                  info
                 </NavDropdown.Item>
               </NavDropdown>
             )}
