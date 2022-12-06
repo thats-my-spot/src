@@ -68,14 +68,16 @@ const EditInfo = ({ location }) => {
   }
 
   return ready ? (
-    <Container className="py-3">
+    <Container className="py-3 background-image3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Edit Info</h2></Col>
+          <Col className="text-center text-white">
+            <h2 className="bg-light-green p-0 m-0">Edit Info</h2>
+          </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
-              <Card.Body>
-                <TextField name="licensePlate" />
+              <Card.Body className="bg-light-green text-white">
+                <TextField name="licensePlate" placeholder="ABC 123"/>
                 <BoolField name="hasPass" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
