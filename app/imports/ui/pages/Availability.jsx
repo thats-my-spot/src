@@ -51,11 +51,12 @@ const Availability = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className="p-0 m-0">
                 {stalls.map(function (stall) {
-                  return (stall.owner === 'empty') ?
-                    <td height={200} style={{ backgroundColor: 'lightgreen' }}><a href="/payment" style={{ display: 'block', position: 'relative' }}>‎</a></td>
-                    : <td height={200} style={{ backgroundColor: 'red' }}> </td>;
+                  return (stall.owner === 'empty') ? (
+                    <td height={200} width={100} style={{ background: 'lightgreen' }} className="bg-light-green m-0 p-0"><a href="/payment" style={{ display: 'block', position: 'relative', height: '100%', width: '100%' }}>‎</a></td>
+                  )
+                    : <td height={200} width={100} style={{ backgroundColor: 'red' }}> </td>;
                 })}
               </tr>
             </tbody>
