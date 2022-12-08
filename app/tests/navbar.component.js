@@ -42,7 +42,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#list-stuff-admin-nav');
+    await testController.click('#list-stall-admin-nav');
   }
 
   /** Check that the specified user is currently logged in. */
