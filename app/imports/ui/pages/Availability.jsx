@@ -3,10 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import Pagination from 'react-bootstrap/Pagination';
-import LoadingSpinner from '../components/LoadingSpinner';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import { Stalls } from '../../api/stalls/Stalls';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const active = 1;
 const items = [];
@@ -24,11 +24,10 @@ const submit = (user, _id) => {
       swal('Error', error.message, 'error');
     } else {
       swal('Success', 'Profile updated successfully', 'success');
-      //setRedirectToRef(true);
+      // setRedirectToRef(true);
     }
   });
 };
-
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const Availability = () => {
@@ -42,8 +41,8 @@ const Availability = () => {
     const rdy = subscription.ready();
     // Get the Stuff documents
     const stallItems = Stalls.collection.find({}).fetch();
-    const user = Meteor.users.findOne(Meteor.userId());
-    //console.log(Stalls.collection.find({ owner: { $in: 'admin@foo.com' } }));
+    // const user = Meteor.users.findOne(Meteor.userId());
+    // console.log(Stalls.collection.find({ owner: { $in: 'admin@foo.com' } }));
     return {
       stalls: stallItems,
       ready: rdy,
