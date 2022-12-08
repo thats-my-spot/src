@@ -6,18 +6,14 @@ import {
   ErrorsField,
   SubmitField,
   TextField,
-  HiddenField,
   NumField,
   DateField,
-  SelectField,
-  NestField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 // import { useTracker } from 'meteor/react-meteor-data';
 // import { useParams } from 'react-router';
-import { Roles } from 'meteor/alanning:roles';
 import { Stalls } from '../../api/stalls/Stalls';
 
 const formSchema = new SimpleSchema({
