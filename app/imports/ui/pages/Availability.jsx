@@ -28,6 +28,7 @@ const Availability = () => {
     const rdy = subscription.ready();
     // Get the Stuff documents
     const stallItems = Stalls.collection.find({}).fetch();
+    stallItems.sort((a, b) => a.stallId - b.stallId);
     return {
       stalls: stallItems,
       ready: rdy,
@@ -43,11 +44,7 @@ const Availability = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th> 1</th>
-                <th> 2</th>
-                <th> 3</th>
-                <th> 4</th>
-                <th> 5</th>
+                {stalls.map(stall => <th>{stall.stallId}</th>)}
               </tr>
             </thead>
             <tbody>
