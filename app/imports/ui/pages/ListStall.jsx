@@ -35,10 +35,11 @@ const ListStall = () => {
               <tr>
                 <th>Stall ID</th>
                 <th>Level</th>
+                <th className="text-center">Leave Stall</th>
               </tr>
             </thead>
             <tbody>
-              {stalls.map((stall) => <StallItem key={stall.stallId} stall={stall} />)}
+              {stalls.map((stall) => <StallItem key={stall.stallId} stall={stall} collection={Stalls.collection} />)}
             </tbody>
           </Table>
         </Col>
