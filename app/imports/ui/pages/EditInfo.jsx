@@ -77,7 +77,7 @@ const EditInfo = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body className="bg-light-green text-white">
-                <TextField name="licensePlate" placeholder="ABC 123"/>
+                <TextField name="licensePlate" placeholder="ABC 123" />
                 <BoolField name="hasPass" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
