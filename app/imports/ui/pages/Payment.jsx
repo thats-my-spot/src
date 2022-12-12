@@ -19,25 +19,25 @@ import { Stalls } from '../../api/stalls/Stalls';
 const formSchema = new SimpleSchema({
   owner: String,
   licensePlate: String,
-  test: {
+  creditCardNumber: {
     type: String,
     optional: true,
     min: 16,
     max: 16,
     // allowedValues: [0,1,2,3,4,5,6,7,8,9],
   },
-  cvv: {
+  CVV: {
     type: String,
     min: 3,
     max: 3,
   },
-  date: Date,
-  test01: {
+  // date: Date,
+  Month: {
     type: SimpleSchema.Integer,
     min: 2,
     max: 2,
   },
-  test02: SimpleSchema.Integer,
+  Year: SimpleSchema.Integer,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -117,21 +117,21 @@ const Payment = () => {
                 </Row>
                 <Row>
                   <Col sm={8}>
-                    <NumField name="test" label={false} placeholder="Credit Card" />
+                    <NumField name="creditCardNumber" label={false} placeholder="Credit Card" />
                   </Col>
                   <Col sm={4}>
-                    <NumField name="cvv" placeholder="CVV" label={false} />
+                    <NumField name="CVV" placeholder="CVV" label={false} />
                   </Col>
-                  <Col>
-                    <DateField name="date" placeholder="MM/YY" format="MM/YY" label={false} />
-                  </Col>
+                  {/*<Col>*/}
+                  {/*  <DateField name="date" placeholder="MM/YY" format="MM/YY" label={false}/>*/}
+                  {/*</Col>*/}
                 </Row>
                 <Row className="row g-0">
                   <Col sm={2}>
-                    <TextField name="test01" label={false} placeholder="MM" />
+                    <TextField name="Month" label={false} placeholder="MM" />
                   </Col>
                   <Col sm={2}>
-                    <NumField name="test02" label={false} placeholder="YY" />
+                    <NumField name="Year" label={false} placeholder="YY" />
                   </Col>
                 </Row>
                 <SubmitField value="Submit" />
