@@ -28,7 +28,6 @@ const submit = (user, _id) => {
     }
   });
 };
-
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const Availability = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -36,6 +35,7 @@ const Availability = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
+
     const subscription = Meteor.subscribe(Stalls.availablePublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
@@ -49,7 +49,11 @@ const Availability = () => {
       ready: rdy,
     };
   }, []);
-  const hasStall = Stalls.collection.findOne({ owner: { $eq: 'admin@foo.com' } }) !== undefined;
+  const user = Meteor.users.findOne(Meteor.userId());
+  console.log(user.username);
+
+  const hasStall = Stalls.collection.findOne({ owner: { $eq: user.username } }) !== undefined;
+  console.log(hasStall);
   if (ready && !hasStall) {
     return (
       <Container id="avail-page" className="py-3">
