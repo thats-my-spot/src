@@ -39,6 +39,7 @@ const EditInfo = ({ location }) => {
     // const rdy = subscription.ready();
     // Get the document
     const document = Meteor.users.findOne(Meteor.userId());
+    // console.log(document);
     return {
       doc: document,
       ready: true,
