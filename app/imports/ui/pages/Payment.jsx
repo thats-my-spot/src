@@ -9,6 +9,7 @@ import {
   NumField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 // import { useTracker } from 'meteor/react-meteor-data';
 // import { useParams } from 'react-router';
@@ -32,8 +33,8 @@ const formSchema = new SimpleSchema({
   // date: Date,
   Month: {
     type: SimpleSchema.Integer,
-    min: 2,
-    max: 2,
+    min: 1,
+    max: 12,
   },
   Year: SimpleSchema.Integer,
 });
@@ -64,6 +65,8 @@ const Payment = () => {
 
   };
 
+  Meteor.subscribe(Stalls.availablePublicationName);
+
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
@@ -90,9 +93,6 @@ const Payment = () => {
                   <Col sm={4}>
                     <NumField name="CVV" placeholder="CVV" label={false} />
                   </Col>
-                  {/* <Col> */}
-                  {/* <DateField name="date" placeholder="MM/YY" format="MM/YY" label={false}/> */}
-                  {/* </Col> */}
                 </Row>
                 <Row className="row g-0">
                   <Col sm={2}>
