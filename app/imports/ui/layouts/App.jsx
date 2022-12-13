@@ -7,6 +7,8 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStall from '../pages/ListStall';
 import ListStallAdmin from '../pages/ListStallAdmin';
+import AddStuff from '../pages/AddStuff';
+import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
@@ -31,6 +33,8 @@ const App = () => (
         <Route path="/payment" element={<Payment />} />
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/stall" element={<ListStall />} />
+        <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
+        <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
         <Route path="/editinfo" element={<ProtectedRoute><EditInfo /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ListStallAdmin /></AdminProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />

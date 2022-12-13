@@ -7,8 +7,10 @@ import {
   SubmitField,
   TextField,
   NumField,
+  DateField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 // import { useTracker } from 'meteor/react-meteor-data';
 // import { useParams } from 'react-router';
@@ -41,7 +43,17 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 const randomId = () => {
+
+  // Get access to Stall documents.
+  // Meteor.subscribe(Stalls.adminPublicationName);
+  // Meteor.subscribe(Stalls.availablePublicationName);
+  // Determine if the subscription is ready
+  // const rdy = subscription.ready();
+  // Get the Stuff documents
+
+  // console.log(Stalls.collection.find());
   const stall = Stalls.collection.findOne({ owner: { $eq: 'empty' } });
+  // console.log(Meteor.userId());
   console.log('what', stall);
   if (stall === undefined) {
     return -1;
@@ -54,6 +66,7 @@ const Payment = () => {
   // On submit, insert the data.
   const submit = (data) => {
     const { owner, licensePlate } = data;
+    // Roles.addUsersToRoles(Meteor.userId(), 'admin');
 
     console.log(owner, licensePlate);
 
@@ -62,7 +75,26 @@ const Payment = () => {
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
 
+    // Roles.removeUsersFromRoles(Meteor.userId(), 'admin');
   };
+
+  // Meteor.subscribe(Stalls.adminPublicationName);
+  Meteor.subscribe(Stalls.availablePublicationName);
+  // const submit = (data, formRef) => {
+  //   const { owner, level, licensePlate } = data;
+  //
+  //   Stalls.collection.insert(
+  //     { owner, stallId, level, licensePlate },
+  //     (error) => {
+  //       if (error) {
+  //         swal('Error', error.message, 'error');
+  //       } else {
+  //         swal('Success', 'Item added successfully', 'success');
+  //         formRef.reset();
+  //       }
+  //     },
+  //   );
+  // };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
@@ -90,9 +122,9 @@ const Payment = () => {
                   <Col sm={4}>
                     <NumField name="CVV" placeholder="CVV" label={false} />
                   </Col>
-                  {/* <Col> */}
-                  {/* <DateField name="date" placeholder="MM/YY" format="MM/YY" label={false}/> */}
-                  {/* </Col> */}
+                  {/*<Col>*/}
+                  {/*  <DateField name="date" placeholder="MM/YY" format="MM/YY" label={false}/>*/}
+                  {/*</Col>*/}
                 </Row>
                 <Row className="row g-0">
                   <Col sm={2}>
