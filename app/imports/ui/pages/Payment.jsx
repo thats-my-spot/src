@@ -38,16 +38,20 @@ const formSchema = new SimpleSchema({
   },
   Year: SimpleSchema.Integer,
 });
+let testVar;
+let levelVar;
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 const randomId = () => {
   const stall = Stalls.collection.findOne({ owner: { $eq: 'empty' } });
-  console.log('what', stall);
+
   if (stall === undefined) {
     return -1;
   }
-  console.log(stall._id);
+
+  testVar = stall.stallId;
+  levelVar = stall.level;
   return stall._id;
 };
 
@@ -56,12 +60,17 @@ const Payment = () => {
   const submit = (data) => {
     const { owner, licensePlate } = data;
 
-    console.log(owner, licensePlate);
-
-    console.log(randomId());
     Stalls.collection.update({ _id: randomId() }, { $set: { owner, licensePlate } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal(
+        {
+          title: 'Payment Successful',
+          text: `Please Remember This Information\n\n Stall Number: ${testVar} at Level: ${levelVar} `,
+          button: {
+            text: 'Mahalo',
+          },
+        },
+      )));
 
   };
 
