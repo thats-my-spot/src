@@ -32,11 +32,14 @@ const formSchema = new SimpleSchema({
   // date: Date,
   Month: {
     type: SimpleSchema.Integer,
-    min: 2,
-    max: 2,
+    min: 1,
+    max: 12,
   },
   Year: SimpleSchema.Integer,
 });
+
+let testVar;
+let levelVar;
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
@@ -45,6 +48,8 @@ const randomId = () => {
   if (stall === undefined) {
     return -1;
   }
+  testVar = stall.stallId;
+  levelVar = stall.level;
   return stall._id;
 };
 
@@ -53,14 +58,20 @@ const Payment = () => {
   const submit = (data) => {
     const { owner, licensePlate } = data;
 
-    console.log(owner, licensePlate);
-
-    console.log(randomId());
     Stalls.collection.update({ _id: randomId() }, { $set: { owner, licensePlate } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
-
+      swal(
+        {
+          title: 'Payment Successful',
+          text: `Please Remember This Information\n\n Stall Number: ${testVar} at Level: ${levelVar} `,
+          button: {
+            text: 'Mahalo',
+          },
+        },
+      )));
   };
+
+  Meteor.subscribe(Stalls.availablePublicationName);
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
@@ -88,9 +99,6 @@ const Payment = () => {
                   <Col sm={4}>
                     <NumField name="CVV" placeholder="CVV" label={false} />
                   </Col>
-                  {/* <Col> */}
-                  {/*  <DateField name="date" placeholder="MM/YY" format="MM/YY" label={false}/> */}
-                  {/* </Col> */}
                 </Row>
                 <Row className="row g-0">
                   <Col sm={2}>
