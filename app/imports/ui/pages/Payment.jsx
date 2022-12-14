@@ -9,7 +9,6 @@ import {
   NumField,
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 // import { useTracker } from 'meteor/react-meteor-data';
 // import { useParams } from 'react-router';
@@ -38,6 +37,7 @@ const formSchema = new SimpleSchema({
   },
   Year: SimpleSchema.Integer,
 });
+
 let testVar;
 let levelVar;
 
@@ -45,11 +45,9 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 const randomId = () => {
   const stall = Stalls.collection.findOne({ owner: { $eq: 'empty' } });
-
   if (stall === undefined) {
     return -1;
   }
-
   testVar = stall.stallId;
   levelVar = stall.level;
   return stall._id;
@@ -71,7 +69,6 @@ const Payment = () => {
           },
         },
       )));
-
   };
 
   Meteor.subscribe(Stalls.availablePublicationName);

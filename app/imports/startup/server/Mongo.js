@@ -9,6 +9,7 @@ const addStall = (stall) => {
   Stalls.collection.insert(stall);
 };
 
+// Initialize the StuffsCollection if empty.
 if (Stalls.collection.find().count() === 0) {
   if (Meteor.settings.defaultStalls) {
     console.log('Creating default stalls.');

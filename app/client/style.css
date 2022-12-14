@@ -137,9 +137,10 @@ td a:hover {
 }
 
 .swal-modal {
-    background-color: #004f2f;
-    border: 4px solid white;
+  background-color: #004f2f;
+  border: 4px solid white;
 }
+
 
 .swal-title {
   color: white;
@@ -150,7 +151,7 @@ td a:hover {
   color: white;
 }
 
-.swal-button{
+.swal-button {
   background-color: #327F60;
   border: 2px solid white;
 }
