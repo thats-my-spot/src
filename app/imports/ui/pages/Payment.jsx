@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
+import { Meteor } from 'meteor/meteor';
 import {
   AutoForm,
   ErrorsField,
